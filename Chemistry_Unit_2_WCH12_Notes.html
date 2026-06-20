@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2: Energetics, Group Chemistry, Halogenoalkanes & Alcohols — Edexcel IAL Chemistry</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0e1116;--bg-card:#161a21;--bg-card-2:#1b2029;--bg-sidebar:#0a0d12;
+    --text:#e7e9ee;--text-dim:#9aa1ad;--text-faint:#5d6472;
+    --teal:#4fb8a3;--teal-dim:#2f8a78;
+    --border:rgba(231,233,238,.08);--border-bright:rgba(231,233,238,.16);
+    --amber:#d9a558;--green:#5fb377;--red:#d96a6a;
+    --font-serif:'DM Serif Display',Georgia,serif;
+    --font-sans:'Outfit',-apple-system,sans-serif;
+    --font-mono:'JetBrains Mono',monospace;
+  }
+  html{font-size:16px;scroll-behavior:smooth}
+  body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.65;display:flex;min-height:100vh}
+
+  .sidebar-toggle{display:none;position:fixed;top:14px;left:14px;z-index:50;width:40px;height:40px;border-radius:8px;background:var(--bg-sidebar);color:#fff;border:1px solid var(--border-bright);font-size:1.1rem;cursor:pointer}
+  .sidebar{position:fixed;top:0;left:0;width:268px;height:100vh;background:var(--bg-sidebar);overflow-y:auto;padding:1.8rem 0 3rem;z-index:40;border-right:1px solid var(--border);transition:transform .25s ease}
+  .sidebar-header{padding:0 1.6rem 1.4rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+  .sidebar-header .unit-code{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;margin-bottom:.5rem}
+  .sidebar-header h2{font-family:var(--font-serif);font-size:1.4rem;color:#fff;line-height:1.25;font-weight:400}
+  .sidebar-section-title{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);padding:0 1.6rem;margin:1.4rem 0 .5rem}
+  .sidebar a{display:block;padding:.5rem 1.6rem;color:var(--text-dim);text-decoration:none;font-size:.86rem;border-left:3px solid transparent;transition:all .15s}
+  .sidebar a:hover{background:rgba(255,255,255,.03);color:var(--text)}
+  .sidebar a.active{color:#fff;border-left-color:var(--teal);background:rgba(79,184,163,.06)}
+
+  .main{margin-left:268px;width:calc(100% - 268px)}
+  .hero{padding:4.5rem 3rem 3rem;border-bottom:1px solid var(--border)}
+  .hero .unit-code{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;color:var(--teal);text-transform:uppercase;margin-bottom:.9rem}
+  .hero h1{font-family:var(--font-serif);font-size:2.3rem;font-weight:400;margin-bottom:1rem;letter-spacing:-.01em;line-height:1.2}
+  .hero p{color:var(--text-dim);font-size:1.02rem;max-width:640px;margin-bottom:1.6rem}
+  .hero-meta{display:flex;gap:.7rem;flex-wrap:wrap}
+  .hero-meta span{font-family:var(--font-mono);font-size:.74rem;color:var(--text-dim);background:var(--bg-card);border:1px solid var(--teal-dim);padding:.4rem .9rem;border-radius:999px}
+  .hero-meta span:first-child{color:var(--teal);border-color:var(--teal)}
+
+  .content{padding:3.2rem 3rem 6rem;max-width:880px}
+
+  .section{margin-bottom:4.5rem}
+  .section-number{font-family:var(--font-mono);font-size:.78rem;color:var(--teal);letter-spacing:.1em;margin-bottom:.4rem}
+  .section h2{font-family:var(--font-serif);font-size:1.85rem;font-weight:400;margin-bottom:1.4rem;padding-bottom:.9rem;border-bottom:1px solid var(--border)}
+  .section h3{font-family:var(--font-serif);font-size:1.25rem;font-weight:400;margin:2rem 0 .9rem;color:#fff}
+  .section p{margin-bottom:1rem;color:#c4c8d0}
+  .section ul,.section ol{margin:0 0 1rem 1.3rem}
+  .section li{margin-bottom:.45rem;color:#c4c8d0}
+
+  .def-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.2rem 0 1.6rem}
+  .def-grid.three{grid-template-columns:1fr 1fr 1fr}
+  .def-box{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:8px;padding:1rem 1.2rem}
+  .def-box dt{font-family:var(--font-mono);font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+  .def-box dd{font-size:.92rem;color:#c4c8d0;line-height:1.6}
+
+  .formula-block{background:var(--bg-card-2);border:1px solid var(--border-bright);border-radius:8px;padding:1.1rem 1.4rem;margin:1.2rem 0;font-family:var(--font-mono);font-size:.92rem;color:var(--teal);overflow-x:auto;line-height:1.8}
+
+  .worked{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.5rem;margin:1.3rem 0}
+  .worked .label{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;font-weight:600}
+  .worked .label.solution{color:var(--green)}
+  .worked p{margin-bottom:.6rem;color:#c4c8d0}
+  .worked p:last-child{margin-bottom:0}
+
+  .tip{background:rgba(79,184,163,.07);border-left:3px solid var(--teal);border-radius:6px;padding:.9rem 1.2rem;margin:1.2rem 0;font-size:.9rem;color:#c4c8d0}
+  .tip strong{color:var(--teal)}
+  .warn{background:rgba(217,165,88,.08);border-left:3px solid var(--amber);border-radius:6px;padding:.9rem 1.2rem;margin:1.2rem 0;font-size:.9rem;color:#c4c8d0}
+  .warn strong{color:var(--amber)}
+
+  table.identity-table{width:100%;border-collapse:collapse;margin:1.2rem 0 1.6rem;font-size:.88rem}
+  table.identity-table th,table.identity-table td{border:1px solid var(--border);padding:.55rem .8rem;text-align:left}
+  table.identity-table th{background:var(--bg-card);font-weight:600;font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;color:var(--teal)}
+  table.identity-table td{font-family:var(--font-mono);font-size:.85rem;color:#c4c8d0}
+  table.identity-table td.prose{font-family:var(--font-sans);font-size:.88rem}
+
+  .quiz-section{background:var(--bg-card);border:1px solid var(--border-bright);border-radius:14px;padding:2.2rem 2.2rem 2.6rem;margin-bottom:3.5rem}
+  .quiz-section .quiz-title{font-family:var(--font-serif);font-size:1.45rem;font-weight:400;margin-bottom:.3rem;color:#fff}
+  .quiz-section .quiz-sub{color:var(--text-dim);font-size:.86rem;margin-bottom:1.6rem}
+  .quiz-q{display:none}
+  .quiz-q.active{display:block}
+  .quiz-q p{font-size:1rem;font-weight:500;margin-bottom:1rem;color:#fff}
+  .quiz-option{display:block;width:100%;text-align:left;background:var(--bg-card-2);border:1px solid var(--border-bright);border-radius:8px;padding:.75rem 1rem;margin-bottom:.6rem;cursor:pointer;font-family:var(--font-sans);font-size:.9rem;color:#c4c8d0;transition:all .15s}
+  .quiz-option:hover{border-color:var(--teal);background:rgba(79,184,163,.08)}
+  .quiz-option.correct-answer{background:rgba(95,179,119,.12);border-color:var(--green);color:#8fdba6}
+  .quiz-option.incorrect-answer{background:rgba(217,90,90,.1);border-color:var(--red);color:#e89a9a}
+  .quiz-option:disabled{cursor:default}
+  .quiz-feedback{font-size:.84rem;padding:.6rem .9rem;border-radius:6px;margin-top:.4rem;display:none}
+  .quiz-feedback.show{display:block}
+  .quiz-feedback.correct-fb{background:rgba(95,179,119,.12);color:#8fdba6}
+  .quiz-feedback.incorrect-fb{background:rgba(217,90,90,.1);color:#e89a9a}
+  .quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem}
+  .quiz-nav button{padding:.5rem 1.2rem;border:1px solid var(--border-bright);border-radius:6px;background:var(--bg-card-2);color:#c4c8d0;cursor:pointer;font-size:.8rem;font-family:var(--font-sans);transition:all .2s}
+  .quiz-nav button:hover{border-color:var(--teal);color:var(--teal)}
+  .quiz-nav .quiz-progress{font-size:.78rem;color:var(--text-faint);font-family:var(--font-mono)}
+  .quiz-score{text-align:center;padding:1.5rem;display:none}
+  .quiz-score .score-number{font-family:var(--font-serif);font-size:2.4rem;font-weight:400;color:var(--teal)}
+  .quiz-score p{color:var(--text-dim);font-size:.88rem;margin-top:.3rem}
+  .quiz-retry{margin-top:1rem;padding:.6rem 1.5rem;background:var(--teal);color:#0a0d12;border:none;border-radius:6px;cursor:pointer;font-size:.84rem;font-family:var(--font-sans);font-weight:600}
+  .quiz-retry:hover{opacity:.9}
+
+  .section-divider{height:1px;background:var(--border);margin:4rem 0}
+
+  @media(max-width:900px){
+    .sidebar-toggle{display:flex;align-items:center;justify-content:center}
+    .sidebar{transform:translateX(-100%)}
+    .sidebar.open{transform:translateX(0)}
+    .main{margin-left:0;width:100%}
+    .hero{padding:4.5rem 1.5rem 3rem}
+    .hero h1{font-size:1.85rem}
+    .content{padding:2.2rem 1.2rem 4rem}
+    .def-grid,.def-grid.three{grid-template-columns:1fr}
+  }
+  .math{font-family:var(--font-mono);font-size:.92em;color:var(--teal)}
+  sup{font-size:.7em;vertical-align:super}
+  sub{font-size:.7em;vertical-align:sub}
+</style>
+</head>
+<body>
+
+<button class="sidebar-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="unit-code">WCH12 · IAL</div>
+    <h2>Chemistry<br>Unit 2 Notes</h2>
+  </div>
+  <div class="sidebar-section-title">Topics</div>
+  <a href="#s1">1. Energetics</a>
+  <a href="#s2">2. Intermolecular Forces</a>
+  <a href="#s3">3. Redox & Groups 1/2</a>
+  <a href="#s4">4. Group 7 (Halogens)</a>
+  <a href="#s5">5. Kinetics & Equilibria</a>
+  <a href="#s6">6. Halogenoalkanes, Alcohols & Spectra</a>
+  <div class="sidebar-section-title">Quizzes</div>
+  <a href="#q1">Quiz 1 · Energetics & IMFs</a>
+  <a href="#q2">Quiz 2 · Redox & Groups</a>
+  <a href="#q3">Quiz 3 · Kinetics, Equilibria & Organic</a>
+</nav>
+
+<main class="main">
+  <header class="hero">
+    <div class="unit-code">Pearson Edexcel International Advanced Level</div>
+    <h1>Unit 2: Energetics, Group Chemistry, Halogenoalkanes &amp; Alcohols</h1>
+    <p>Complete revision notes for WCH12 covering energetics, intermolecular forces, redox chemistry, Groups 1/2/7, kinetics and equilibria, and organic chemistry — halogenoalkanes, alcohols, and spectroscopic analysis.</p>
+    <div class="hero-meta">
+      <span>WCH12/01</span>
+      <span>1h 30 min</span>
+      <span>80 marks</span>
+      <span>40% of IAS</span>
+      <span>Jan · Jun · Oct</span>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- SECTION 1: ENERGETICS -->
+    <section class="section" id="s1">
+      <div class="section-number">01</div>
+      <h2>Energetics</h2>
+
+      <h3>Enthalpy Change</h3>
+      <p>Enthalpy change, ΔH, is the heat energy transferred at constant pressure. A negative ΔH indicates an <strong>exothermic</strong> reaction (heat released to the surroundings); a positive ΔH indicates an <strong>endothermic</strong> reaction (heat absorbed from the surroundings).</p>
+      <p>Standard conditions for thermochemical measurements are 298 K, 100 kPa, with solutions at 1 mol/dm³.</p>
+
+      <div class="def-grid">
+        <div class="def-box"><dt>ΔH<sub>f</sub>° — Formation</dt><dd>Enthalpy change when one mole of a compound forms from its elements in their standard states.</dd></div>
+        <div class="def-box"><dt>ΔH<sub>c</sub>° — Combustion</dt><dd>Enthalpy change when one mole of a substance burns completely in oxygen.</dd></div>
+        <div class="def-box"><dt>ΔH<sub>at</sub>° — Atomisation</dt><dd>Enthalpy change when one mole of gaseous atoms forms from an element in its standard state.</dd></div>
+        <div class="def-box"><dt>ΔH<sub>neut</sub>° — Neutralisation</dt><dd>Enthalpy change when an acid and base react to form one mole of water.</dd></div>
+      </div>
+
+      <h3>Hess's Law</h3>
+      <p>The total enthalpy change for a reaction is independent of the route taken, provided the initial and final conditions are the same. This allows enthalpy changes that can't be measured directly to be calculated via an indirect cycle.</p>
+      <div class="formula-block">ΔH<sub>reaction</sub> = Σ(bonds broken) − Σ(bonds formed)</div>
+      <div class="tip"><strong>Tip:</strong> bond enthalpies used in this calculation are mean values averaged across many compounds, so the result is only an estimate — it will rarely match the experimentally measured value exactly. Only diatomic molecules (e.g. H–H, Cl–Cl) have a single, exact bond enthalpy.</div>
+
+      <h3>Calorimetry</h3>
+      <div class="formula-block">q = mcΔT &nbsp;&nbsp; then &nbsp;&nbsp; ΔH = −q / n</div>
+      <p>where q = heat energy transferred (J), m = mass of solution (g), c = specific heat capacity, ΔT = temperature change, n = moles of the limiting reactant. The negative sign in the second equation reflects that heat released by the reaction (q positive, exothermic) corresponds to a negative ΔH for the system.</p>
+      <div class="warn"><strong>Common source of error:</strong> heat loss to the surroundings during the experiment usually means the measured |ΔH| is an underestimate of the true value — calorimetry experiments should be extrapolated back to the moment of mixing to minimise this.</div>
+    </section>
+
+    <!-- SECTION 2: INTERMOLECULAR FORCES -->
+    <section class="section" id="s2">
+      <div class="section-number">02</div>
+      <h2>Intermolecular Forces</h2>
+
+      <div class="def-grid">
+        <div class="def-box"><dt>London (induced dipole) forces</dt><dd>Present between all molecules. Arise from temporary fluctuations in electron distribution. Strength increases with the number of electrons (and hence Mr) and with surface area of contact.</dd></div>
+        <div class="def-box"><dt>Permanent dipole-dipole forces</dt><dd>Occur between polar molecules, where one end is permanently δ+ and the other δ−, adding an attractive force on top of London forces.</dd></div>
+      </div>
+
+      <h3>Hydrogen Bonding</h3>
+      <p>A particularly strong form of permanent dipole-dipole attraction, occurring when a hydrogen atom is bonded directly to a highly electronegative atom (F, O, or N) which also has a lone pair available to attract that hydrogen on a neighbouring molecule.</p>
+      <div class="tip"><strong>Why water's boiling point is unusually high:</strong> water forms an extensive 3D network of hydrogen bonds (each molecule can both donate and accept two hydrogen bonds), requiring far more energy to break than the London/dipole forces alone would predict for a molecule of its size.</div>
+
+      <h3>Effect on Physical Properties</h3>
+      <p>Stronger intermolecular forces generally mean higher melting and boiling points, since more energy is needed to separate the particles. This explains trends such as why boiling point increases with chain length in a homologous series (more electrons, stronger London forces) but decreases with branching (smaller surface area of contact between molecules).</p>
+    </section>
+
+    <!-- QUIZ 1 -->
+    <div class="quiz-section" id="q1">
+      <div class="quiz-title">Quiz 1 · Energetics &amp; Intermolecular Forces</div>
+      <div class="quiz-sub">Enthalpy definitions, Hess's Law, calorimetry, and intermolecular forces.</div>
+      <div class="quiz-container" data-quiz-id="quiz1"></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- SECTION 3: REDOX & GROUPS 1/2 -->
+    <section class="section" id="s3">
+      <div class="section-number">03</div>
+      <h2>Redox Chemistry &amp; Groups 1 &amp; 2</h2>
+
+      <h3>Redox: Oxidation &amp; Reduction</h3>
+      <div class="formula-block">OIL RIG &nbsp;—&nbsp; Oxidation Is Loss (of electrons), Reduction Is Gain</div>
+      <p>Oxidation states are assigned by convention: elements in their natural state = 0; the oxidation state of a simple ion equals its charge; oxygen is usually −2 (except in peroxides, where it is −1); hydrogen is usually +1 (except in metal hydrides, where it is −1); fluorine is always −1.</p>
+      <p>Half-equations are balanced by first balancing atoms, then balancing charge by adding electrons. <strong>Disproportionation</strong> occurs when the same element is simultaneously oxidised and reduced within one reaction.</p>
+
+      <h3>Group 2 Trends &amp; Reactions</h3>
+      <p>Going down Group 2: atomic radius increases, ionisation energy decreases, and reactivity increases (the outer electrons are progressively easier to remove as they are further from the nucleus and more shielded).</p>
+      <table class="identity-table">
+        <tr><th>Reaction</th><th>Products</th></tr>
+        <tr><td>Mg + steam</td><td>MgO + H₂</td></tr>
+        <tr><td>Ca / Sr / Ba + cold water</td><td>M(OH)₂ + H₂</td></tr>
+      </table>
+      <p>Group 2 oxides are basic. The solubility of the hydroxides increases down the group, while the solubility of the sulfates decreases — barium sulfate is so insoluble that it is used as the standard test for sulfate ions in solution.</p>
+      <div class="def-grid three">
+        <div class="def-box"><dt>Li</dt><dd>Red flame</dd></div>
+        <div class="def-box"><dt>Na</dt><dd>Yellow flame</dd></div>
+        <div class="def-box"><dt>K</dt><dd>Lilac flame</dd></div>
+      </div>
+      <div class="def-grid three">
+        <div class="def-box"><dt>Ca</dt><dd>Orange-red flame</dd></div>
+        <div class="def-box"><dt>Sr</dt><dd>Red flame</dd></div>
+        <div class="def-box"><dt>Ba</dt><dd>Green flame</dd></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GROUP 7 -->
+    <section class="section" id="s4">
+      <div class="section-number">04</div>
+      <h2>Group 7 (The Halogens)</h2>
+
+      <p>Going down Group 7: atomic radius increases, electronegativity decreases, and reactivity (as oxidising agents) decreases — the opposite trend to Group 2, since halogens react by gaining rather than losing electrons.</p>
+
+      <h3>Displacement Reactions</h3>
+      <p>A more reactive (more oxidising) halogen will displace a less reactive halogen from solution as the halide ion:</p>
+      <div class="formula-block">Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂ &nbsp;&nbsp;(solution turns orange)<br>Cl₂ + 2I⁻ → 2Cl⁻ + I₂ &nbsp;&nbsp;(solution turns brown)</div>
+      <p>This reflects that reducing power of the halide ions increases down the group: Cl⁻ &lt; Br⁻ &lt; I⁻.</p>
+
+      <h3>Reactions with Concentrated Sulfuric Acid</h3>
+      <table class="identity-table">
+        <tr><th>Halide</th><th>Observation</th></tr>
+        <tr><td>NaCl</td><td>White steamy fumes of HCl</td></tr>
+        <tr><td>NaBr</td><td>HBr fumes, then orange Br₂ vapour as some HBr is further oxidised</td></tr>
+        <tr><td>NaI</td><td>HI fumes, then purple I₂ vapour, plus the rotten-egg smell of H₂S as some HI is oxidised further still</td></tr>
+      </table>
+
+      <h3>Silver Nitrate Test for Halides</h3>
+      <table class="identity-table">
+        <tr><th>Halide ion</th><th>Precipitate with AgNO₃</th></tr>
+        <tr><td>Cl⁻</td><td>White (AgCl)</td></tr>
+        <tr><td>Br⁻</td><td>Cream (AgBr)</td></tr>
+        <tr><td>I⁻</td><td>Yellow (AgI)</td></tr>
+      </table>
+      <p>The precipitates can be distinguished further by their differing solubility in ammonia solution.</p>
+
+      <h3>Chlorine in Water</h3>
+      <div class="formula-block">Cl₂ + H₂O → HOCl + HCl</div>
+      <p>This is a disproportionation reaction (chlorine is simultaneously oxidised and reduced) and is the basis for chlorine's use in water purification, since HOCl is an effective disinfectant.</p>
+    </section>
+
+    <!-- QUIZ 2 -->
+    <div class="quiz-section" id="q2">
+      <div class="quiz-title">Quiz 2 · Redox &amp; Group Chemistry</div>
+      <div class="quiz-sub">Oxidation states, half-equations, Group 2 reactions, and halogen displacement.</div>
+      <div class="quiz-container" data-quiz-id="quiz2"></div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- SECTION 5: KINETICS & EQUILIBRIA -->
+    <section class="section" id="s5">
+      <div class="section-number">05</div>
+      <h2>Introduction to Kinetics &amp; Equilibria</h2>
+
+      <h3>Collision Theory</h3>
+      <p>For a reaction to occur, particles must collide with both sufficient energy (at least the activation energy, Ea) and the correct orientation. Increasing temperature, concentration, pressure (for gases), or surface area (for solids) all increase the frequency of successful collisions and therefore the rate of reaction.</p>
+
+      <h3>The Maxwell-Boltzmann Distribution</h3>
+      <p>This distribution shows the spread of kinetic energies among particles in a sample at a given temperature. Raising the temperature shifts the whole curve to the right and flattens it, meaning a greater proportion of particles now have energy ≥ Ea — this is why even a modest temperature increase can have a large effect on reaction rate.</p>
+      <div class="tip"><strong>Tip:</strong> a catalyst does not change the shape of the Maxwell-Boltzmann distribution itself — instead, it provides an alternative reaction pathway with a lower activation energy, so a larger proportion of the existing distribution already qualifies as "successful" collisions.</div>
+
+      <h3>Le Chatelier's Principle</h3>
+      <p>If a system at dynamic equilibrium is subjected to a change in concentration, temperature, or pressure, the position of equilibrium shifts to counteract that change.</p>
+      <table class="identity-table">
+        <tr><th>Change</th><th>Equilibrium response</th></tr>
+        <tr><td>Increase concentration of a reactant</td><td>Shifts right (towards products) to use up the excess</td></tr>
+        <tr><td>Increase temperature</td><td>Shifts in the endothermic direction to absorb the extra heat</td></tr>
+        <tr><td>Increase pressure (gases)</td><td>Shifts towards the side with fewer gas moles</td></tr>
+      </table>
+      <div class="warn"><strong>Common exam trap:</strong> a catalyst speeds up the rate at which equilibrium is reached but does NOT shift the position of equilibrium itself — it speeds up the forward and reverse reactions equally.</div>
+    </section>
+
+    <!-- SECTION 6: HALOGENOALKANES, ALCOHOLS & SPECTRA -->
+    <section class="section" id="s6">
+      <div class="section-number">06</div>
+      <h2>Organic Chemistry: Halogenoalkanes, Alcohols &amp; Spectra</h2>
+
+      <h3>General Reaction Types</h3>
+      <p>Before getting into the specific chemistry, it helps to recognise the broad categories a reaction can fall into: <strong>addition</strong> (reactants combine into a single product), <strong>elimination</strong> (a small group is removed, often forming a double bond), <strong>substitution</strong> (one functional group replaces another), and <strong>hydrolysis</strong> (a molecule is broken apart by reaction with water).</p>
+      <p>Bond breaking is described as either <strong>homolytic</strong> (each atom keeps one electron from the shared pair, forming two radicals) or <strong>heterolytic</strong> (one atom takes both electrons, forming a positive and a negative ion). Heterolytic fission is what generates the electrophiles and nucleophiles central to this topic — an electrophile accepts an electron pair to form a new bond, while a nucleophile donates one.</p>
+
+      <h3>Halogenoalkanes</h3>
+      <p>A halogenoalkane has a polar carbon-halogen bond, since halogens are more electronegative than carbon — this leaves the carbon atom δ+ and open to nucleophilic attack. Halogenoalkanes are classified as primary, secondary, or tertiary depending on how many carbon groups are attached to the carbon bearing the halogen.</p>
+      <div class="tip"><strong>Reactivity trend:</strong> going down Group 7, the carbon-halogen bond gets weaker (despite becoming less polar) because the larger halogen atom forms a longer, weaker bond. A weaker bond breaks more easily, so iodoalkanes react fastest and fluoroalkanes slowest — bond strength, not polarity, controls the rate here.</div>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Nucleophilic substitution reactions of halogenoalkanes</h4>
+      <table class="identity-table">
+        <tr><th>Reagent</th><th>Product</th></tr>
+        <tr><td>Aqueous NaOH / KOH</td><td>Alcohol (OH⁻ acts as the nucleophile)</td></tr>
+        <tr><td>Ethanolic ammonia (NH₃)</td><td>Amine</td></tr>
+        <tr><td>Ethanolic KCN</td><td>Nitrile (this extends the carbon chain by one carbon, useful in synthesis)</td></tr>
+      </table>
+      <p>By contrast, heating a halogenoalkane with <strong>ethanolic</strong> KOH favours <strong>elimination</strong> rather than substitution — here the hydroxide ion acts as a base, removing a hydrogen and forming an alkene instead.</p>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Testing halogenoalkanes with silver nitrate</h4>
+      <p>Warming a halogenoalkane with aqueous silver nitrate (in ethanol, to keep everything in one phase) causes hydrolysis: water acts as the nucleophile, releasing the halide ion, which then precipitates with the silver ion. The precipitate colour identifies the halogen (white = chloride, cream = bromide, yellow = iodide), and the <em>speed</em> at which the precipitate appears reflects bond strength — iodide precipitates fastest, chloride slowest, consistent with the reactivity trend above.</p>
+
+      <h3>Alcohols</h3>
+      <p>Alcohols carry the −OH functional group and, like halogenoalkanes, are classified as primary, secondary, or tertiary depending on the substitution at the carbon bearing the hydroxyl group.</p>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Making halogenoalkanes from alcohols</h4>
+      <p>The −OH group of an alcohol can itself be substituted for a halogen:</p>
+      <table class="identity-table">
+        <tr><th>Reagent</th><th>Produces</th><th>Note</th></tr>
+        <tr><td>PCl₅</td><td>Chloroalkane</td><td>Doubles as a chemical test for −OH: white steamy fumes turn damp blue litmus paper red</td></tr>
+        <tr><td>NaBr / KBr + concentrated H₂SO₄</td><td>Bromoalkane</td><td>The acid first generates HBr in situ, which then reacts with the alcohol</td></tr>
+        <tr><td>Red phosphorus + I₂</td><td>Iodoalkane</td><td>Forms PI₃ first, which then reacts with the alcohol</td></tr>
+      </table>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Elimination: dehydration to alkenes</h4>
+      <p>Heating an alcohol with concentrated phosphoric acid removes a molecule of water, forming an alkene — the reverse, in effect, of the acid-catalysed hydration of alkenes to alcohols seen in WCH11.</p>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Oxidation of alcohols</h4>
+      <p>Acidified potassium dichromate(VI) is the standard oxidising agent for this topic — it changes colour from orange to green as it is reduced, which itself is a visible indicator that oxidation has occurred.</p>
+      <table class="identity-table">
+        <tr><th>Alcohol type</th><th>Mild oxidation (heat, distil immediately)</th><th>Further oxidation (heat under reflux)</th></tr>
+        <tr><td>Primary</td><td>Aldehyde</td><td>Carboxylic acid</td></tr>
+        <tr><td>Secondary</td><td>Ketone</td><td>No further oxidation (ketones resist further oxidation under these conditions)</td></tr>
+        <tr><td>Tertiary</td><td>Not oxidised</td><td>Not oxidised</td></tr>
+      </table>
+      <div class="tip"><strong>Why distillation vs. reflux matters:</strong> distilling the aldehyde off as soon as it forms removes it from the reaction mixture before it can be oxidised further — reflux, by contrast, continuously returns everything to the flask, allowing the reaction to proceed all the way to the carboxylic acid.</div>
+
+      <h4 style="font-family:var(--font-serif);font-size:1.05rem;color:#fff;margin:1.2rem 0 .6rem;font-weight:400;">Identifying the products: carbonyl and carboxylic acid tests</h4>
+      <table class="identity-table">
+        <tr><th>Test</th><th>Positive result</th><th>Detects</th></tr>
+        <tr><td>Fehling's solution (warm)</td><td>Blue solution → brick-red precipitate</td><td>Aldehyde (ketones give no colour change)</td></tr>
+        <tr><td>Tollens' reagent (warm)</td><td>Colourless solution → silver mirror on tube walls</td><td>Aldehyde (ketones give no reaction)</td></tr>
+        <tr><td>Sodium carbonate / hydrogencarbonate</td><td>Effervescence; gas turns limewater cloudy</td><td>Carboxylic acid (CO₂ released)</td></tr>
+      </table>
+
+      <h3>Key Experimental Techniques</h3>
+      <div class="def-grid">
+        <div class="def-box"><dt>Reflux</dt><dd>Continuous heating with a condenser returning vapour to the flask, allowing a reaction to run to completion (e.g. full oxidation to a carboxylic acid) without losing volatile product.</dd></div>
+        <div class="def-box"><dt>Distillation</dt><dd>Separates liquids by boiling point — the lower-boiling component vaporises first and is condensed separately, isolating it from the mixture (e.g. collecting an aldehyde before it over-oxidises).</dd></div>
+        <div class="def-box"><dt>Separating funnel</dt><dd>Separates two immiscible liquids of different density into distinct layers, which can then be run off individually via the tap.</dd></div>
+        <div class="def-box"><dt>Drying</dt><dd>An anhydrous salt (commonly anhydrous sodium sulfate) is added to absorb residual water from an organic product, improving purity.</dd></div>
+      </div>
+      <p>Boiling point is also used as a purity check: the closer the measured boiling point is to the literature value, and the narrower the range over which it occurs, the purer the sample.</p>
+
+      <h3>Mass Spectrometry &amp; Infrared Spectroscopy</h3>
+      <p>Mass spectrometry (covered in more depth for atomic structure in WCH11) can also identify organic molecules from their molecular ion peak. One subtlety worth knowing: occasionally a doubly-charged ion (2+) forms during ionisation, which appears on the spectrum at exactly half its true mass-to-charge ratio — recognising this prevents misreading the molecular mass.</p>
+      <p>Infrared spectroscopy identifies functional groups by the characteristic wavenumber at which different bonds absorb IR radiation:</p>
+      <table class="identity-table">
+        <tr><th>Bond / group</th><th>Absorption range (cm⁻¹)</th></tr>
+        <tr><td>O–H (alcohol)</td><td>3230 – 3550, broad</td></tr>
+        <tr><td>O–H (carboxylic acid)</td><td>2500 – 3300, very broad</td></tr>
+        <tr><td>C=C</td><td>1620 – 1680</td></tr>
+        <tr><td>C=O</td><td>1680 – 1750</td></tr>
+      </table>
+      <p>Below roughly 1500 cm⁻¹ lies the <strong>fingerprint region</strong> — a complex pattern unique to each specific molecule, useful for confirming an exact identity (e.g. by comparison against a reference spectrum) rather than for identifying individual functional groups.</p>
+      <div class="warn"><strong>Common exam trap:</strong> the alcohol O–H and acid O–H absorptions both sit in a similar broad region — distinguishing them relies on the acid peak extending further down (to ~2500 cm⁻¹) and the presence or absence of an accompanying C=O peak around 1700 cm⁻¹, which confirms a carboxylic acid rather than a simple alcohol.</div>
+    </section>
+
+    <!-- QUIZ 3 -->
+    <div class="quiz-section" id="q3">
+      <div class="quiz-title">Quiz 3 · Kinetics, Equilibria &amp; Organic Chemistry</div>
+      <div class="quiz-sub">Collision theory, Le Chatelier, halogenoalkanes, alcohols, and spectroscopy.</div>
+      <div class="quiz-container" data-quiz-id="quiz3"></div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const quizData = {
+  quiz1: [
+    {q:"A reaction with a negative ΔH is described as:", options:["Endothermic", "Exothermic", "Reversible", "Catalytic"], answer:1},
+    {q:"Hess's Law states that the enthalpy change of a reaction:", options:["Depends on the route taken", "Is independent of the route taken, given the same start and end conditions", "Is always negative", "Can only be measured directly"], answer:1},
+    {q:"In the calorimetry equation q = mcΔT, the symbol c represents:", options:["Concentration", "Specific heat capacity", "Number of moles", "Catalyst efficiency"], answer:1},
+    {q:"Which intermolecular force is present between ALL molecules, polar or non-polar?", options:["Hydrogen bonding", "Permanent dipole-dipole", "London (induced dipole) forces", "Ionic bonding"], answer:2},
+    {q:"Hydrogen bonding requires a hydrogen atom bonded directly to which atoms?", options:["Any halogen", "F, O, or N", "Carbon only", "Any electronegative atom"], answer:1},
+    {q:"Why does water have an unusually high boiling point for its size?", options:["It has strong London forces only", "It forms an extensive 3D hydrogen-bonding network", "It is ionic", "It has a high molar mass"], answer:1}
+  ],
+  quiz2: [
+    {q:"In the mnemonic OIL RIG, the 'RIG' stands for:", options:["Reduction Is Gain (of electrons)", "Reduction Is Generated", "Reactivity Increases Generally", "Redox Involves Gases"], answer:0},
+    {q:"Going down Group 2, reactivity:", options:["Decreases, as ionisation energy increases", "Increases, as ionisation energy decreases", "Stays constant", "Increases, as atomic radius decreases"], answer:1},
+    {q:"Which Group 2 sulfate is most insoluble, forming the basis of the sulfate ion test?", options:["MgSO₄", "CaSO₄", "BaSO₄", "BeSO₄"], answer:2},
+    {q:"A flame test showing a lilac colour indicates the presence of:", options:["Sodium", "Calcium", "Potassium", "Barium"], answer:2},
+    {q:"When Cl₂ is added to a solution of KI, the solution turns:", options:["Orange", "Brown", "Colourless", "Green"], answer:1},
+    {q:"The reaction Cl₂ + H₂O → HOCl + HCl is an example of:", options:["Neutralisation", "Disproportionation", "Precipitation", "Combustion"], answer:1}
+  ],
+  quiz3: [
+    {q:"According to collision theory, for a reaction to occur particles must collide with:", options:["Any amount of energy", "Energy ≥ activation energy and correct orientation", "Maximum possible energy", "Identical kinetic energy"], answer:1},
+    {q:"A catalyst increases reaction rate by:", options:["Increasing the temperature of the system", "Providing an alternative pathway with lower activation energy", "Shifting the position of equilibrium", "Increasing reactant concentration"], answer:1},
+    {q:"According to Le Chatelier's Principle, increasing pressure on a gaseous equilibrium shifts it towards:", options:["The side with more gas moles", "The side with fewer gas moles", "No change in position", "Whichever side is exothermic"], answer:1},
+    {q:"Heating a halogenoalkane with ethanolic (not aqueous) KOH favours which type of reaction?", options:["Nucleophilic substitution to form an alcohol", "Elimination to form an alkene", "Oxidation", "Hydrolysis with silver nitrate"], answer:1},
+    {q:"Heating a primary alcohol with acidified potassium dichromate(VI) under reflux produces:", options:["An aldehyde only", "A ketone", "A carboxylic acid", "No reaction"], answer:2},
+    {q:"In an IR spectrum, a strong absorption around 1700 cm⁻¹ combined with a broad O–H peak from 2500-3300 cm⁻¹ most likely indicates:", options:["An alcohol", "A carboxylic acid", "An alkene", "An alkane"], answer:1}
+  ]
+};
+
+function buildQuizHTML(item, i, total, quizId){
+  const indices = item.options.map((_, idx) => idx);
+  for(let j = indices.length - 1; j > 0; j--){
+    const k = Math.floor(Math.random() * (j+1));
+    [indices[j], indices[k]] = [indices[k], indices[j]];
+  }
+  const correctShuffled = indices.indexOf(item.answer);
+  let html = `<p>${i+1}. ${item.q}</p>`;
+  indices.forEach((origIdx, newIdx) => {
+    html += `<button class="quiz-option" data-correct="${newIdx===correctShuffled}" onclick="handleAnswer(this,'${quizId}',${i})">${item.options[origIdx]}</button>`;
+  });
+  html += `<div class="quiz-feedback"></div><div class="quiz-nav"><span class="quiz-progress">${i+1} / ${total}</span>`;
+  if(i < total - 1) html += `<button onclick="nextQuestion('${quizId}',${i})">Next →</button>`;
+  else html += `<button onclick="showScore('${quizId}')">See results</button>`;
+  html += `</div>`;
+  return html;
+}
+
+function initQuizzes(){
+  document.querySelectorAll('.quiz-container').forEach(container => {
+    const quizId = container.dataset.quizId;
+    const questions = quizData[quizId];
+    container.dataset.score = 0;
+    questions.forEach((item, i) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-q' + (i===0 ? ' active' : '');
+      div.innerHTML = buildQuizHTML(item, i, questions.length, quizId);
+      container.appendChild(div);
+    });
+    const scoreDiv = document.createElement('div');
+    scoreDiv.className = 'quiz-score';
+    scoreDiv.innerHTML = `<div class="score-number"></div><p></p><button class="quiz-retry" onclick="retryQuiz('${quizId}')">Try again</button>`;
+    container.appendChild(scoreDiv);
+  });
+}
+
+function handleAnswer(btn, quizId, qIndex){
+  const qDiv = btn.closest('.quiz-q');
+  const options = qDiv.querySelectorAll('.quiz-option');
+  const isCorrect = btn.dataset.correct === 'true';
+  options.forEach(o => {
+    o.disabled = true;
+    if(o.dataset.correct === 'true') o.classList.add('correct-answer');
+  });
+  if(!isCorrect) btn.classList.add('incorrect-answer');
+  const container = qDiv.closest('.quiz-container');
+  if(isCorrect) container.dataset.score = parseInt(container.dataset.score) + 1;
+  const fb = qDiv.querySelector('.quiz-feedback');
+  fb.textContent = isCorrect ? 'Correct!' : 'Not quite — the correct answer is highlighted above.';
+  fb.className = 'quiz-feedback show ' + (isCorrect ? 'correct-fb' : 'incorrect-fb');
+}
+
+function nextQuestion(quizId, currentIndex){
+  const container = document.querySelector(`[data-quiz-id="${quizId}"]`);
+  const qs = container.querySelectorAll('.quiz-q');
+  qs[currentIndex].classList.remove('active');
+  qs[currentIndex+1].classList.add('active');
+}
+
+function showScore(quizId){
+  const container = document.querySelector(`[data-quiz-id="${quizId}"]`);
+  const qs = container.querySelectorAll('.quiz-q');
+  qs[qs.length-1].classList.remove('active');
+  const score = parseInt(container.dataset.score);
+  const total = qs.length;
+  const scoreDiv = container.querySelector('.quiz-score');
+  scoreDiv.style.display = 'block';
+  scoreDiv.querySelector('.score-number').textContent = `${score} / ${total}`;
+  scoreDiv.querySelector('p').textContent = score === total ? 'Perfect score!' : 'Review the topics above and try again.';
+}
+
+function retryQuiz(quizId){
+  const container = document.querySelector(`[data-quiz-id="${quizId}"]`);
+  container.innerHTML = '';
+  container.dataset.score = 0;
+  const questions = quizData[quizId];
+  questions.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q' + (i===0 ? ' active' : '');
+    div.innerHTML = buildQuizHTML(item, i, questions.length, quizId);
+    container.appendChild(div);
+  });
+  const scoreDiv = document.createElement('div');
+  scoreDiv.className = 'quiz-score';
+  scoreDiv.innerHTML = `<div class="score-number"></div><p></p><button class="quiz-retry" onclick="retryQuiz('${quizId}')">Try again</button>`;
+  container.appendChild(scoreDiv);
+}
+
+document.querySelectorAll('.sidebar a').forEach(a => {
+  a.addEventListener('click', () => {
+    if(window.innerWidth <= 900) document.querySelector('.sidebar').classList.remove('open');
+  });
+});
+
+initQuizzes();
+</script>
+</body>
+</html>
